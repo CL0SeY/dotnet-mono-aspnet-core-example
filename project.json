@@ -1,9 +1,5 @@
 ﻿{
   "dependencies": {
-    "Microsoft.NETCore.App": {
-      "version": "1.0.0",
-      "type": "platform"
-    },
     "Microsoft.AspNetCore.Diagnostics": "1.0.0",
     "Microsoft.AspNetCore.Mvc": "1.0.0",
     "Microsoft.AspNetCore.Razor.Tools": {
@@ -29,10 +25,9 @@
   },
 
   "frameworks": {
-    "netcoreapp1.0": {
+    "net451": {
       "imports": [
-        "dotnet5.6",
-        "portable-net45+win8"
+        "dnx451"
       ]
     }
   },
@@ -59,7 +54,7 @@
   },
 
   "scripts": {
-    "prepublish": [ "bower install", "dotnet bundle" ],
+    "prepublish": [ "bower install --allow-root", "dotnet bundle" ],
     "postpublish": [ "dotnet publish-iis --publish-folder %publish:OutputPath% --framework %publish:FullTargetFramework%" ]
   }
 }
