@@ -1,4 +1,4 @@
-FROM cl0sey/dotnet-mono-node-docker:xenial-base
+FROM cl0sey/dotnet-mono-node-docker:install-git
 
 # Cache the dotnet initial extraction if you want
 #
