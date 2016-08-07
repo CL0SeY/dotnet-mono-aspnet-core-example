@@ -6,8 +6,3 @@ How to:
 > docker run -it -p 5000:5000 dotnet-mono-aspnet-core-example
 ```
 And then browse to your docker host on port 5000.
-
-## Issues
-
-### LocalDB
-LocalDB doesn't work on Linux. So login + register etc with this app is currently broken.
