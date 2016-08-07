@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<dotnet_mono_aspnet_core_example.Models.PostModel>
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -72,6 +73,13 @@
             <li>Sample pages using ASP.NET Core MVC</li>
             <li><a href="http://go.microsoft.com/fwlink/?LinkId=518004">Bower</a> for managing client-side libraries</li>
             <li>Theming using <a href="http://go.microsoft.com/fwlink/?LinkID=398939">Bootstrap</a></li>
+        </ul>
+        <h2>Top posts (API):</h2>
+        <ul>
+            @foreach (var post in Model)
+            {
+                <li>@post.Title</li>
+            }
         </ul>
     </div>
     <div class="col-md-3">

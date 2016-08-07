@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using dotnet_mono_aspnet_core_example.Models;
 using Microsoft.AspNetCore.Mvc;
+using RestSharp;
 
 namespace dotnet_mono_aspnet_core_example.Controllers
 {
@@ -10,7 +10,10 @@ namespace dotnet_mono_aspnet_core_example.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            RestClient client = new RestClient("http://jsonplaceholder.typicode.com/");
+            IRestRequest request = new RestRequest("posts");
+            var response = client.Get<List<PostModel>>(request);
+            return View(response.Data.Take(5));
         }
 
         public IActionResult About()
