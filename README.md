@@ -10,6 +10,21 @@ And then browse to your docker host on port 5000.
 ## Why?
 This example can serve as a starting point for those people who still have .NET 4.5.1 dependencies but want to use ASP.NET Core in Docker.
 
+## Why is the build so slow and caching the .NET stuff each time?
+This Dockerfile is optimised to reduce layer size. This is done by performing the restore + build in the one step. 
+
+If you want to cache the dotnet install, uncomment the following:
+```
+# WORKDIR /tmp/dotnet-new
+# RUN dotnet new && rm -Rf /tmp/dotnet-new
+```
+
+If you want to cache the package restore, uncomment the following:
+```
+# ADD project*.json /app/
+# RUN dotnet restore
+```
+
 ## How do I know this is using .NET 4.5.1?
 It has a dependency on RestSharp 105.2.3, which is not .NET Core compatible. An example REST response from http://jsonplaceholder.typicode.com/posts is shown on the home page.
 
