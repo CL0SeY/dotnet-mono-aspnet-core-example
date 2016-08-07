@@ -2,15 +2,22 @@ FROM cl0sey/dotnet-mono-node-docker:xenial-base
 
 WORKDIR /app
 
-ADD bower.json /app/bower.json
-RUN bower install --allow-root
-
-ADD project*.json /app/
-RUN dotnet restore
+# This Dockerfile is optimised to reduce layer size
+# If you want to cache the package restore, uncomment the following:
+#
+# ADD project*.json /app/
+# RUN dotnet restore
 
 ADD . /app
 
-RUN dotnet publish --configuration Release
+RUN dotnet restore \
+    && dotnet publish --configuration Release -o /publish \
+	&& rm -Rf /app \
+	&& rm -Rf ~/.nuget \
+	&& rm -Rf ~/.local/share/NuGet
+
 EXPOSE 5000
 
-CMD ["mono", "bin/Release/net451/ubuntu.16.04-x64/publish/app.exe"]
+WORKDIR /publish
+
+CMD ["mono", "app.exe"]
