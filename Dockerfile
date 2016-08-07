@@ -1,9 +1,4 @@
-FROM cl0sey/dotnet-mono-node-docker:install-git
-
-# Cache the dotnet initial extraction if you want
-#
-# WORKDIR /tmp/dotnet-new
-# RUN dotnet new && rm -Rf /tmp/dotnet-new
+FROM cl0sey/dotnet-mono-node-docker:dotnet-jessie-base
 
 WORKDIR /app
 
