@@ -1,4 +1,4 @@
-FROM cl0sey/dotnet-mono-node-docker:install-git
+FROM cl0sey/dotnet-mono-node-docker:feature-split-dockerfiles-sdk
 
 # Cache the dotnet initial extraction if you want
 #
