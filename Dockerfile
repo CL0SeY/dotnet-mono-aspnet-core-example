@@ -1,4 +1,4 @@
-FROM cl0sey/dotnet-mono-node-docker:install-git
+FROM cl0sey/dotnet-mono-node-docker:1.0-sdk
 
 # Cache the dotnet initial extraction if you want
 #
