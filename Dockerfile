@@ -1,10 +1,5 @@
 FROM cl0sey/dotnet-mono-node-docker:1.0-sdk
 
-# Cache the dotnet initial extraction if you want
-#
-# WORKDIR /tmp/dotnet-new
-# RUN dotnet new && rm -Rf /tmp/dotnet-new
-
 WORKDIR /app
 
 # This Dockerfile is optimised to reduce layer size
